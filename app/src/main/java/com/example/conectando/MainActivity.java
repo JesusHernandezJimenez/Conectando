@@ -36,6 +36,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     ListView listView;
     Adaptador adapter;
+    // comentario de pueba en git
     public static ArrayList<Users> users = new ArrayList<>();
 
     String url = "http://192.168.1.67/crud2/retrieve.php";

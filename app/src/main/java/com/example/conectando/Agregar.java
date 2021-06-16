@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class Agregar extends AppCompatActivity {
 
-    EditText txtName,txtEmail,txtContact,txtAddress,pass,distrit;
+    EditText txtName,txtEmail,txtContact,txtAddress,txtPass,txtUser;
     Button btn_insert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,8 @@ public class Agregar extends AppCompatActivity {
         txtContact  = findViewById(R.id.edtContact);
         txtAddress  = findViewById(R.id.edtAddress);
         btn_insert = findViewById(R.id.btnInsert);
-        pass = findViewById(R.id.edpass);
-        //distrit = findViewById(R.id.distrito);
+        txtPass = findViewById(R.id.edtPass);
+        txtUser = findViewById(R.id.edtUser);
 
         btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,11 +50,11 @@ public class Agregar extends AppCompatActivity {
     private void insertData() {
 
         final String nombre = txtName.getText().toString().trim();
+        final String usuario = txtUser.getText().toString().trim();
+        final String password = txtPass.getText().toString().trim();
         final String email = txtEmail.getText().toString().trim();
         final String contacto = txtContact.getText().toString().trim();
         final String direccion = txtAddress.getText().toString().trim();
-        final String password = pass.getText().toString().trim();
-        //final String distrito = distrit.getText().toString().trim();
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("cargando...");
@@ -113,8 +113,9 @@ public class Agregar extends AppCompatActivity {
                     Map<String, String> params = new HashMap<String, String>();
 
                     params.put("nombre",nombre);
-                    params.put("email",email);
+                    params.put("usuario", usuario);
                     params.put("contraseña",password);
+                    params.put("email",email);
                     params.put("contacto",contacto);
                     params.put("direccion",direccion);
                     //params.put("distrito",distrito);
@@ -147,6 +148,8 @@ public class Agregar extends AppCompatActivity {
         Intent intent=new Intent(com.example.conectando.Agregar.this,MainActivity.class);
         startActivity(intent);
         txtName.setText("");
+        txtUser.setText("");
+        txtPass.setText("");
         txtContact.setText("");
         txtEmail.setText("");
         txtAddress.setText("");

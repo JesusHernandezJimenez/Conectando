@@ -14,18 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:usesCleartextTraffic="true">
-        <activity android:name="com.example.conectando.Editar" />
-        <activity android:name="com.example.conectando.DetalleslActivity" />
-        <activity android:name="com.example.conectando.MainActivity">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".LoginActivity" android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.conectando.Agregar" />
+        <activity android:name=".Editar" />
+        <activity android:name=".DetalleslActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".Agregar" />
     </application>
 
 </manifest>

@@ -11,30 +11,48 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Usuarios"
+        android:text="Crear Usuario"
         android:textSize="28sp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/textverde"
-        android:textSize="20sp"
-        android:hint="Nombre:"
 
+    <EditText
         android:id="@+id/edtName"
-        android:layout_marginTop="20dp"
-        android:inputType="textPersonName"
-        />
-    <EditText
         android:layout_width="match_parent"
-
-        android:textSize="20sp"
-        android:hint="Email:"
         android:layout_height="50dp"
-        android:background="@drawable/textverde"
-        android:id="@+id/edtEmail"
         android:layout_marginTop="20dp"
+
+        android:hint="Nombre:"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+
+        android:hint="Usuario:"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+
+        android:hint="Contraseña:"
+        android:inputType="textPassword"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Email:"
         android:inputType="textEmailAddress"
-        />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/edpass"
@@ -55,7 +73,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/textverde"
         android:hint="Teléfono"
         android:inputType="phone"
         android:textSize="20sp" />
@@ -65,7 +82,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/textverde"
         android:hint="Dirección:"
         android:inputType="text"
         android:textSize="20sp" />

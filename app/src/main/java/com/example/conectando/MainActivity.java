@@ -36,6 +36,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     ListView listView;
     Adaptador adapter;
+    // comentario de prueba en git
     public static ArrayList<Users> users = new ArrayList<>();
 
     String url = "http://192.168.1.67/crud2/retrieve.php";
@@ -163,11 +164,13 @@ public class MainActivity extends AppCompatActivity {
 
                                     String id = object.getString("id");
                                     String nombre = object.getString("nombre");
+                                    String usuario = object.getString("usuario");
+                                    String contrasena = object.getString("contrasena");
                                     String email = object.getString("email");
                                     String contacto = object.getString("contacto");
                                     String direccion = object.getString("direccion");
 
-                                    usuarios = new Users(id,nombre,email,contacto,direccion);
+                                    usuarios = new Users(id,nombre,usuario, contrasena,email,contacto,direccion);
                                     users.add(usuarios);
                                     adapter.notifyDataSetChanged();
 

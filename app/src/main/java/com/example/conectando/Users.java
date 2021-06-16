@@ -1,14 +1,16 @@
 package com.example.conectando;
 
 public class Users {
-    private String id,nombre,email,contacto,direccion;
+    private String id,nombre,usuario, password, email,contacto,direccion;
 
     public Users() {
     }
 
-    public Users(String id, String nombre, String email, String contacto, String direccion) {
+    public Users(String id, String nombre, String usuario, String password, String email, String contacto, String direccion) {
         this.id = id;
         this.nombre = nombre;
+        this.usuario = usuario;
+        this.password = password;
         this.email = email;
         this.contacto = contacto;
         this.direccion = direccion;
@@ -52,5 +54,21 @@ public class Users {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

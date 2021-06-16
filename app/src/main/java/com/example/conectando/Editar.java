@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class Editar extends AppCompatActivity {
 
-    EditText edId,edName,edContact,edEmail,edAddress;
+    EditText edId,edName, edUser, edPass,edContact,edEmail,edAddress;
     private int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,12 @@ public class Editar extends AppCompatActivity {
 
         edId = findViewById(R.id.ed_id);
         edName = findViewById(R.id.ed_name);
+        edUser = findViewById(R.id.ed_user);
+        edPass = findViewById(R.id.ed_pass);
         edContact = findViewById(R.id.ed_contact);
         edEmail = findViewById(R.id.ed_email);
         edAddress = findViewById(R.id.ed_address);
+
 
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position");
@@ -41,6 +44,8 @@ public class Editar extends AppCompatActivity {
 
         edId.setText(MainActivity.users.get(position).getId());
         edName.setText(MainActivity.users.get(position).getNombre());
+        edUser.setText(MainActivity.users.get(position).getUsuario());
+        edPass.setText(MainActivity.users.get(position).getPassword());
         edEmail.setText(MainActivity.users.get(position).getEmail());
         edContact.setText(MainActivity.users.get(position).getContacto());
         edAddress.setText(MainActivity.users.get(position).getDireccion());
@@ -53,6 +58,8 @@ public class Editar extends AppCompatActivity {
     public void btn_updateData(View view) {
 
         final String nombre = edName.getText().toString();
+        final String usuario = edUser.getText().toString();
+        final String contrasena = edPass.getText().toString();
         final String email = edEmail.getText().toString();
         final String contacto = edContact.getText().toString();
         final String direccion = edAddress.getText().toString();
@@ -63,7 +70,7 @@ public class Editar extends AppCompatActivity {
 
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Cargando....");
+        progressDialog.setMessage("Actualizando Datos....");
         progressDialog.show();
 
         StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.67/crud2/update.php",
@@ -93,6 +100,8 @@ public class Editar extends AppCompatActivity {
 
                 params.put("id",id);
                 params.put("nombre",nombre);
+                params.put("usuario", usuario);
+                params.put("contrasena", contrasena);
                 params.put("email",email);
                 params.put("contacto",contacto);
                 params.put("direccion",direccion);

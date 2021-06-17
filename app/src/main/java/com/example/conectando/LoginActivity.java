@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if(!response.isEmpty()){
-                    Intent sig = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent sig = new Intent(getApplicationContext(),Opciones.class);
                     startActivity(sig);
                 }else{
                     Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();

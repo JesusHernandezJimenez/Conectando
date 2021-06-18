@@ -18,4 +18,9 @@ public class Opciones extends AppCompatActivity {
         Intent sig = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(sig);
     }
+
+    public void devices(View view){
+        Intent sig = new Intent(getApplicationContext(),Devices.class);
+        startActivity(sig);
+    }
 }

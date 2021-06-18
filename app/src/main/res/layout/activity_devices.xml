@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F4F5"
-    tools:context=".Opciones">
+    tools:context=".Devices">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/men"
+            android:text="Dispositivos"
             android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <LinearLayout
                 android:id="@+id/layoutGoal"
                 android:layout_width="0dp"
@@ -49,9 +48,41 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="64dp"
+                android:layout_marginEnd="22dp"
                 android:background="@drawable/white_rectangle"
                 android:gravity="center"
-                android:onClick="usuario"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <Switch
+                    android:id="@+id/switch3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bluetooth" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Conectar con dispositivo Bluetooth Arduino"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutDis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/white_rectangle"
+                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="H 1:1"
@@ -64,27 +95,26 @@
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
                     android:padding="8dp"
-                    android:src="@drawable/usuario" />
+                    android:src="@drawable/idea" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Usuarios"
+                    android:text="Encender"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layoutDis"
+                android:id="@+id/layoutOff"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="160dp"
                 android:layout_marginEnd="22dp"
                 android:background="@drawable/white_rectangle"
                 android:gravity="center"
-                android:onClick="devices"
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="H 1:1"
@@ -103,15 +133,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Dispositivos"
+                    android:text="Apagar"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

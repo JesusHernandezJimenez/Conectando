@@ -10,51 +10,35 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.IOException;
 import java.util.Set;
 import java.util.UUID;
 
-public class Devices extends AppCompatActivity {
+public class Encendido extends AppCompatActivity {
     private BluetoothAdapter btAdapter = null;
     private BluetoothSocket btSocket = null;
-    private static String address = null;
-    boolean activar;
+    public static String address = null;
+    private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    public boolean activar;
     Handler bluetoothIn;
     final int handlerState = 0;
+    Button prender,button,apagar,desconectar;
     private ConnectedThread MyConexionBT;
-    private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    TextView txtEdit, band;
-    Switch conectar;
-    LinearLayout apagar;
-    LinearLayout encender;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_devices);
-        txtEdit = findViewById(R.id.editSelec);
-        conectar = findViewById(R.id.conectar);
-        encender = findViewById(R.id.encender);
-        band = findViewById(R.id.band);
-        apagar = findViewById(R.id.apagar);
-        apagar.setVisibility(View.GONE);
-        encender.setVisibility(View.GONE);
-        btAdapter = BluetoothAdapter.getDefaultAdapter();
-        verificarBluetooth();
+        setContentView(R.layout.activity_encendido);
 
-        Set<BluetoothDevice> pairedDevicesList = btAdapter.getBondedDevices();
-        for (BluetoothDevice pairedDevice : pairedDevicesList){
-            if(pairedDevice.getName().equals("HC-05")){
-                address = pairedDevice.getAddress();
-            }
-        }
+        prender = findViewById(R.id.prender);
+        button = findViewById(R.id.button);
+        apagar = findViewById(R.id.Apagar);
+        desconectar = findViewById(R.id.Desconectar);
+
+
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         verificarBluetooth();
 
@@ -69,25 +53,40 @@ public class Devices extends AppCompatActivity {
 
         }
 
-        encender.setOnClickListener(new View.OnClickListener() {
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activar = true;
+                onResume();
+            }
+        });
+
+        prender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyConexionBT.write("1");
-                encender.setVisibility(View.GONE);
-                apagar.setVisibility(View.VISIBLE);
             }
         });
         apagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyConexionBT.write("2");
-                apagar.setVisibility(View.GONE);
-                encender.setVisibility(View.VISIBLE);
             }
         });
 
-    }
+        desconectar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
 
+                    btSocket.close();
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
     private BluetoothSocket createBluetoothSocket (BluetoothDevice device) throws IOException {
 
         return device.createRfcommSocketToServiceRecord(BTMODULEUUID);
@@ -185,24 +184,5 @@ public class Devices extends AppCompatActivity {
 
 
 
-    }
-    public void onClick(View view) {
-        if(view.getId() == R.id.conectar){
-            if(conectar.isChecked()){
-                txtEdit.setText("Conectado");
-                activar = true;
-                onResume();
-                encender.setVisibility(View.VISIBLE);
-            }else{
-                txtEdit.setText("Desconectado");
-                encender.setVisibility(View.GONE);
-                apagar.setVisibility(View.GONE);
-                try{
-                    btSocket.close();
-                } catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 }

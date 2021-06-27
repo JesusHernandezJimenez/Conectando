@@ -103,7 +103,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
                     android:padding="8dp"
-                    android:src="@drawable/idea" />
+                    android:src="@drawable/ideaa" />
 
                 <TextView
 

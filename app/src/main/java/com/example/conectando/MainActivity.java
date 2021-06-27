@@ -112,8 +112,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        if(response.equalsIgnoreCase("Eliminar datos")){
-                            Toast.makeText(MainActivity.this, "Datos eliminados correctamente", Toast.LENGTH_SHORT).show();
+                        if(response.equalsIgnoreCase("El usuario se ha eliminado")){
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
+                            Toast.makeText(MainActivity.this, "Usuario eliminado", Toast.LENGTH_SHORT).show();
                         }else{
                             //Toast.makeText(MainActivity.this, "Datos no eliminados", Toast.LENGTH_SHORT).show();
                         }

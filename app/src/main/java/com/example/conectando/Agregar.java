@@ -86,9 +86,10 @@ public class Agregar extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
 
-                            if(response.equalsIgnoreCase("Datos insertados")){
-                                limpiar();
-                                Toast.makeText(com.example.conectando.Agregar.this, "Datos insertados", Toast.LENGTH_SHORT).show();
+                            if(response.equalsIgnoreCase("El usuario se ha creado satisfactoriamente")){
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                finish();
+                                Toast.makeText(com.example.conectando.Agregar.this, "Usuario creado", Toast.LENGTH_SHORT).show();
 
                                 progressDialog.dismiss();
                             }
@@ -101,7 +102,7 @@ public class Agregar extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(com.example.conectando.Agregar.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(com.example.conectando.Agregar.this, "Error al agregar", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 }
             }

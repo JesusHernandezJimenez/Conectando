@@ -87,7 +87,7 @@ public class Editar extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println(error.getMessage());
-                Toast.makeText(com.example.conectando.Editar.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(com.example.conectando.Editar.this, "Error al actualizar", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
 
             }
